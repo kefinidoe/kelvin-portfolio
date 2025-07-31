@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelvin Owens: Web Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <nav class="navbar">
+   <a href="index.html" class="logo">
+    <img src="logo.png" alt="Kelvin Kimani Logo">
+</a>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="burger-menu">☰</div>
+  </nav>
+
+  <section class="home" id="home">
+    <div class="home-container">
+      <div class="home-content">
+        <h1>Hi, I'm Kelvin Kimani</h1>
+        <h3>Frontend Developer</h3>
+        <p>I transform design dreams into responsive realities using the holy trinity (HTML, CSS, JS) and whatever shiny framework catches my fancy this week. My code is clean, my animations buttery, and my commitment to killing jank is borderline obsessive.</p>
+        <div class="btn-box">
+          <a href="contact.html">Hire Me</a>
+          <a href="contact.html">Let's Talk</a>
+        </div>
+      </div>
+      
+      <div class="home-image-wrapper">
+        <img src="kelvin.jpg" class="floating-image" alt="Kelvin Owens">
+      </div>
+    </div>
+
+   
+  </section>
+  
+<!-- About Section -->
+<section class="about" id="about">
+        <div class="about-container">
+            <h2 class="section-title">About Me</h2>
+            <h3 class="section-subtitle">Who I Am & What I Do</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>My name is Kelvin kimani, a passionate Frontend Developer with over 1 year of experience in crafting visually stunning and highly functional websites. I have a strong foundation in working with HTML, CSS, and JavaScript, along with frameworks like React and Vue.js.</p>
+                    <p>Aside from coding, I enjoy exploring new technologies, working on personal projects, and contributing to open-source initiatives. I'm committed to continuous learning and staying updated with the latest industry trends.</p>
+                    <p>When I'm not coding, you can find me hiking, photography, and reading about new tech innovations.</p>
+                </div>
+                <div class="about-image-wrapper">
+                    <img src="kelvin 2.jpg" alt="Kelvin Owens Profile" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+  <section class="services-section">
+        <div class="about-container">
+            <h2 class="section-title">My Services</h2>
+            <h3 class="section-subtitle">Crafting Beautiful, Responsive, and Functional Websites</h3>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <h3>Custom Website Development</h3>
+                    <p>I build modern, fast, and accessible websites using HTML, CSS, and JavaScript tailored to your needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Responsive Web Design</h3>
+                    <p>I ensure your website looks perfect on desktops, tablets, and smartphones, delivering a seamless experience.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>UI/UX Design Implementation</h3>
+                    <p>I translate beautiful designs into fully functional, pixel-perfect websites that users love to interact with.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Website Optimization</h3>
+                    <p>Fast websites win. I optimize your site's speed, performance, and SEO for better visibility and user experience.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Maintenance and Updates</h3>
+                    <p>Websites need care. I offer regular maintenance and updates to keep your site secure and up-to-date.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Frontend Tools and Frameworks</h3>
+                    <p>Proficient with React.js, Tailwind CSS, Bootstrap, and API integrations to create dynamic and scalable websites.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   <section class="contact-page">
+        <div class="contact-container">
+            <h1>Contact Me</h1>
+            <p>Let's build something amazing together, or just connect!</p>
+
+            <div class="contact-info">
+                <p><i class='bx bx-envelope'></i> <a href="mailto:kelvinmwangi1744@gmail.com">kelvinmwangi1744@gmail.com</a></p>
+                <p><i class='bx bx-phone'></i> <a href="tel:+254759809502">+254 759809502</a></p>
+                <p><i class='bx bx-map'></i> Nakuru, Kenya</p>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://YOUR_DOMAIN.COM/contact.html?success=true">
+                <input type="hidden" name="_subject" value="New Portfolio Contact from Kelvin Owens!"> <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I've received your message and will get back to you soon.">
+            </form>
+
+            <div id="form-message"></div>
+            <div class="socials-contact-page">
+                <a href="https://linkedin.com/in/KelvinMwangi" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.facebook.com/KelvinOwens" target="_blank" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://github.com/kefinidoe" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                <a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+    </section>
+ <footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <h3>Kelvin Kimani</h3>
+            <p>&copy; <span id="current-year"></span> All rights reserved.</p>
+            <p>Designed and Developed with ❤️ by Kelvin Kimani</p> </div>
+
+        <div class="footer-nav">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h4>Connect With Me</h4>
+            <div class="social-links-footer">
+                <a href="https://www.facebook.com/Kelvin Owen's" target="_blank" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://www.linkedin.com/in/kelvinmwangi" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/yourinstagramhandle" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                <a href="https://github.com/kefinidoe" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+    });
+</script>
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
+  <script>
+    const burgerMenu = document.querySelector('.burger-menu');
+    const menu = document.querySelector('.menu');
+    
+    burgerMenu.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

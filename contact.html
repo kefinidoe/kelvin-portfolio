@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Contact | Kelvin Owens Frontend Developer</title> <link rel="stylesheet" href="style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Kelvin Owens Logo">
+        </a>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li> </ul>
+        <div class="burger-menu" id="burger-menu">☰</div> </nav>
+
+    <section class="contact-page">
+        <div class="contact-container">
+            <h1>Contact Me</h1>
+            <p>Let's build something amazing together, or just connect!</p>
+
+            <div class="contact-info">
+                <p><i class='bx bx-envelope'></i> <a href="mailto:kelvinmwangi1744@gmail.com">kelvinmwangi1744@gmail.com</a></p>
+                <p><i class='bx bx-phone'></i> <a href="tel:+254759809502">+254 759809502</a></p>
+                <p><i class='bx bx-map'></i> Nakuru, Kenya</p>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://YOUR_DOMAIN.COM/contact.html?success=true">
+                <input type="hidden" name="_subject" value="New Portfolio Contact from Kelvin Owens!"> <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I've received your message and will get back to you soon.">
+            </form>
+
+            <div id="form-message"></div>
+            <div class="socials-contact-page">
+                <a href="https://linkedin.com/in/KelvinMwangi" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.facebook.com/KelvinOwens" target="_blank" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                <a href="https://github.com/kefinidoe" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                <a href="https://twitter.com/Kelvin Mwangi
+@KelvinOwe001
+" target="_blank" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- Navbar Burger Menu Toggle ---
+        const burgerMenu = document.getElementById('burger-menu'); // Using getElementById
+        const menu = document.querySelector('.menu');
+
+        if (burgerMenu && menu) { // Check for element existence
+            burgerMenu.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+        }
+
+        // --- Navbar Active Link Highlighting ---
+        // This JS ensures the correct link in the navbar gets the 'active' class
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentPath = window.location.pathname.split("/").pop(); // Gets 'contact.html'
+            const navLinks = document.querySelectorAll('.navbar .menu li a');
+
+            navLinks.forEach(link => {
+                // If link href matches current page or is index.html on root
+                if (link.getAttribute('href') === currentPath || (currentPath === '' && link.getAttribute('href') === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Also, close the mobile menu if a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+
+        // --- Contact Form Submission (Formspree) ---
+        const form = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message'); // Ensure this div has opacity: 0 in CSS by default
+
+        if (form && formMessage) { // Check for element existence before adding listener
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                formMessage.style.opacity = 1; // Make message visible
+                formMessage.textContent = "Sending message..."; // Provide immediate feedback
+                formMessage.style.color = '#00abf0'; // Set initial color
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json' // Essential for Formspree API response
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json(); // Parse JSON response from Formspree
+                        if (data.ok) { // Formspree uses 'ok: true' for success
+                            formMessage.style.color = '#00ff88'; // Green for success
+                            formMessage.textContent = "✅ Message sent successfully!";
+                            form.reset(); // Clear the form fields on success
+                        } else {
+                            // Handle specific Formspree errors if 'ok' is false but response is 200
+                            formMessage.style.color = 'red';
+                            formMessage.textContent = `❌ ${data.errors ? data.errors.map(err => err.message).join(', ') : "Failed to send message."}`;
+                        }
+                    } else {
+                        // Handle HTTP errors (e.g., 404, 500) from Formspree
+                        const errorText = await response.text(); // Get raw response text for debugging
+                        console.error('Form submission failed:', response.status, errorText);
+                        formMessage.style.color = 'red';
+                        formMessage.textContent = "❌ Failed to send message. Please try again.";
+                    }
+                } catch (error) {
+                    console.error('Network or other error:', error);
+                    formMessage.style.color = 'red';
+                    formMessage.textContent = "❌ An error occurred. Please try again. (Check console for details)";
+                }
+
+                // Make message fade out after a delay
+                setTimeout(() => {
+                    formMessage.style.opacity = 0;
+                }, 5000); // Message fades after 5 seconds
+            });
+        }
+    </script>
+</body>
+</html>

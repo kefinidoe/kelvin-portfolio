@@ -1,0 +1,1220 @@
+/* style.css - Complete Version (Responsive Edition) */
+
+/* Base HTML & Body Setup for REM Units */
+html {
+    /*
+     * This sets the base font-size for 'rem' units.
+     * 1rem = 10px. This makes calculations easier (e.g., 1.6rem = 16px).
+     * It's crucial for global scaling of text and responsive elements.
+     */
+    font-size: 62.5%; /* 1rem = 10px; */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #22465f;
+    color: #ededed;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column; /* For sticky footer if content is short */
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%; /* Converted from 20px to 2rem; 10% for horizontal padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Increased z-index to ensure it's always on top */
+    background-color: rgba(34, 70, 95, 0.9);
+    backdrop-filter: blur(10px);
+    height: 7rem; /* Fixed height for navbar, helps with content pushing */
+}
+
+.logo {
+    font-size: 2.5rem; /* Keep if you have a text fallback, or just for spacing */
+    font-weight: bold; /* Keep if you have a text fallback */
+    color: #00abf0;
+    text-decoration: none;
+    transition: 0.3s; /* This transition can apply to color changes etc. */
+    align-items: center;
+}
+
+/* Image Logo specific styles */
+.navbar .logo img {
+    height: 6rem; /* Example height for the logo image, adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no extra space below the image */
+    transition: transform 0.3s ease; /* This is the correct transition for the image */
+}
+
+.navbar .logo img:hover {
+    transform: scale(1.05); /* Only the image scales */
+}
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1.5rem 5%;
+        height: 6.5rem; /* Adjust navbar height if needed to accommodate larger logo */
+    }
+    .logo {
+        font-size: 2.2rem;
+    }
+    .navbar .logo img {
+        height: 5rem; /* Adjusted from 4.5rem to 5rem */
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 1rem 4%;
+        height: 6rem; /* Adjust navbar height if needed */
+    }
+    .logo {
+        font-size: 2rem;
+    }
+    .navbar .logo img {
+        height: 4.5rem; /* Adjusted from 4rem to 4.5rem */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 3%;
+        height: 5.5rem; /* Adjust navbar height if needed */
+    }
+    .navbar .logo img {
+        height: 4rem; /* Adjusted from 3.5rem to 4rem */
+    }
+}
+
+.menu {
+    display: flex;
+    gap: 2rem; /* Converted from 20px to 2rem */
+    list-style: none;
+    /* Removed redundant `flex-direction: column` here, will add in media query */
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 0.8rem 1.5rem; /* Converted from 8px 15px to rem */
+    border-radius: 0.4rem; /* Converted from 4px to rem */
+}
+
+.menu li a:hover,
+.menu li a.active { /* Added .active class for current page highlight */
+    background-color: #00abf0;
+    color: #081b29;
+}
+
+.burger-menu {
+    display: none; /* Hidden by default, shown in media queries */
+    cursor: pointer;
+    font-size: 3rem; /* Slightly larger for better tap target */
+    color: white;
+}
+
+/* Home Section */
+.home {
+    min-height: 100vh; /* Use min-height to ensure it takes at least full viewport height */
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: 8rem; /* Space for fixed navbar */
+    /* Removed fixed height 100vh here, min-height is more flexible */
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4rem; /* Converted from 40px to 4rem */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.home-content {
+    max-width: 60rem; /* Converted from 600px to 60rem */
+    z-index: 3;
+    flex: 1 1 50rem; /* Flex basis to allow content to grow/shrink */
+    /* Min width for the content block before it starts wrapping */
+}
+
+.home-content h1 {
+    font-size: 5.6rem; /* Converted from 56px to 5.6rem */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem; /* Converted from 15px to 1.5rem */
+    color: #00abf0;
+}
+
+.home-content h3 {
+    font-size: 3.2rem; /* Converted from 32px to 3.2rem */
+    color: #00abf0;
+    font-weight: 700;
+    margin-bottom: 2rem; /* Converted from 20px to 2rem */
+}
+
+.home-content p {
+    font-size: 1.6rem; /* Converted from 16px to 1.6rem */
+    margin: 2rem 0 4rem; /* Converted from 20px 0 40px to rem */
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-box {
+    display: flex;
+    gap: 2rem; /* Converted from 20px to 2rem */
+    width: auto; /* Allow width to be determined by content or flex */
+    max-width: 34.5rem; /* Converted from 345px to 34.5rem */
+    height: 5rem; /* Converted from 50px to 5rem */
+    margin-bottom: 4rem; /* Converted from 40px to 4rem */
+    justify-content: center; /* Center buttons within their own box */
+}
+
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem; /* Converted from 150px to 15rem */
+    height: 100%;
+    background: #00abf0;
+    border: 0.2rem solid #00abf0; /* Converted from 2px to 0.2rem */
+    border-radius: 0.8rem; /* Converted from 8px to 0.8rem */
+    font-size: 1.9rem; /* Converted from 19px to 1.9rem */
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.1rem; /* Converted from 1px to 0.1rem */
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box a:hover {
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2):hover {
+    color: #081b29;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #00abf0;
+}
+
+.btn-box a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before {
+    width: 100%;
+}
+
+.home-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 50rem; /* Converted from 500px to 50rem */
+    display: flex;
+    justify-content: center;
+    flex: 1 1 40rem; /* Flex basis for the image wrapper */
+}
+
+.floating-image {
+    max-height: 70vh;
+    width: 100%;
+    max-width: 50rem; /* Converted from 500px to 50rem */
+    height: auto;
+    border-radius: 1rem; /* Converted from 10px to 1rem */
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3); /* Converted from 10px 30px to rem */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2rem);
+    } /* Converted from -20px to -2rem */
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 4rem; /* Converted from 40px to 4rem */
+    left: 10%;
+    width: 17rem; /* Converted from 170px to 17rem */
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem; /* Converted from 40px to 4rem */
+    height: 4rem; /* Converted from 40px to 4rem */
+    background: transparent;
+    border: 0.2rem solid #00abf0; /* Converted from 2px to 0.2rem */
+    border-radius: 50%;
+    font-size: 2rem; /* Converted from 20px to 2rem */
+    color: #00abf0;
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.home-sci a:hover {
+    color: #081b29;
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+/* Responsive Design (General Breakpoints) */
+@media (max-width: 1200px) {
+    .navbar {
+        padding: 2rem 5%; /* Adjust padding for slightly smaller screens */
+    }
+    .home {
+        padding: 8rem 5% 4rem; /* Adjust padding for slightly smaller screens */
+    }
+    .home-content h1 {
+        font-size: 4.8rem; /* Converted from 48px to 4.8rem */
+    }
+    .home-content h3 {
+        font-size: 2.8rem; /* Converted from 28px to 2.8rem */
+    }
+    .home-image-wrapper {
+        max-width: 40rem; /* Adjust image size */
+    }
+    .floating-image {
+        max-width: 40rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1.5rem 5%; /* Further adjust padding */
+        height: 6rem; /* Slightly smaller navbar height */
+    }
+    .logo {
+        font-size: 6.2rem; /* Smaller logo text */
+    }
+    .navbar .logo img {
+        height: 4.5rem; /* Smaller image logo */
+    }
+
+    .menu {
+        flex-direction: column;
+        background-color: rgba(34, 70, 95, 0.95); /* Slightly less transparent */
+        position: absolute;
+        top: 6rem; /* Align with new navbar height */
+        left: 0;
+        right: 0;
+        padding: 1rem 0;
+        display: none; /* Hide menu by default */
+        width: 100%; /* Take full width */
+        text-align: center; /* Center menu items */
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .menu li {
+        margin: 1rem 0; /* Vertical margin for stacked links */
+    }
+
+    .menu li a {
+        padding: 1rem 2rem; /* Increase padding for better tap target */
+        display: block; /* Make links take full width for easier tapping */
+    }
+
+    .menu.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .burger-menu {
+        display: block; /* Show burger menu on smaller screens */
+    }
+
+    .home-container {
+        flex-direction: column-reverse; /* Put image above content on mobile for better flow */
+        text-align: center;
+        padding-top: 8rem; /* Ensure space below navbar */
+        gap: 3rem; /* Reduce gap */
+    }
+
+    .home-content {
+        max-width: 100%; /* Allow content to take full width */
+        flex: none; /* Reset flex basis */
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.5rem;
+        margin: 1.5rem auto 3rem; /* Center and adjust margin */
+        max-width: 50rem; /* Constrain paragraph width for readability */
+    }
+
+    .btn-box {
+        flex-direction: column; /* Stack buttons vertically */
+        height: auto;
+        gap: 1.5rem; /* Reduce gap between stacked buttons */
+        max-width: 25rem; /* Limit button group width */
+        margin: 0 auto 3rem; /* Center and adjust margin */
+    }
+    .btn-box a {
+        width: 100%; /* Make buttons full width when stacked */
+        height: 5rem;
+    }
+
+    .home-image-wrapper {
+        max-width: 80%; /* Adjust image size for better fit */
+        flex: none; /* Reset flex basis */
+    }
+    .floating-image {
+        max-width: 100%; /* Ensure image scales within its wrapper */
+        max-height: 50vh; /* Limit image height on smaller screens */
+    }
+
+    .home-sci {
+        position: static; /* Remove absolute positioning */
+        width: 100%; /* Take full width */
+        justify-content: center; /* Center social icons */
+        margin-top: 3rem; /* Add space above icons */
+        padding-bottom: 2rem; /* Add some padding at the bottom */
+    }
+}
+
+/* --- Your existing global styles (e.g., html font-size: 62.5%;, navbar, home section, etc.) should come BEFORE this --- */
+
+/* About Section Base Styles (Desktop/Large Screens) */
+.about {
+    padding: 10rem 10%; /* More generous vertical padding, and 10% horizontal */
+    background-color: #0b5572;
+    color: #ededed;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #00abf0;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.5rem;
+    width: 8rem;
+    height: 0.4rem;
+    background-color: #00abf0;
+    border-radius: 0.2rem;
+}
+
+.section-subtitle {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5rem;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    text-align: left; /* Default to left for large screens */
+}
+
+.about-text {
+    flex: 1 1 50rem;
+    max-width: 65rem;
+    line-height: 1.8;
+}
+
+.about-text p {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-image-wrapper {
+    flex: 1 1 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 45rem;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease-in-out;
+}
+
+.about-image-wrapper:hover {
+    transform: scale(1.02);
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1.5rem);
+    }
+}
+
+
+/* --- Responsive adjustments for About Section --- */
+
+/* For tablets and smaller desktops (e.g., 992px to 769px) */
+@media (max-width: 992px) {
+    .about {
+        padding: 8rem 5%; /* Adjust padding */
+    }
+
+    .section-title {
+        font-size: 4rem; /* Adjust title size */
+    }
+    .section-subtitle {
+        font-size: 2.2rem;
+        margin-bottom: 4rem;
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack image and text vertically */
+        gap: 4rem; /* Adjust gap when stacked */
+        text-align: center; /* Center text when stacked */
+    }
+
+    .about-text {
+        order: 2; /* Move text below image */
+        max-width: 70rem; /* Allow text to be wider when stacked */
+        flex: 1 1 auto; /* Adjust flex properties */
+    }
+
+    .about-text p {
+        font-size: 1.7rem;
+        margin-left: auto; /* Center paragraphs within their container */
+        margin-right: auto;
+        max-width: 60rem; /* Max width for paragraph lines for readability */
+    }
+
+    .about-image-wrapper {
+        order: 1; /* Move image above text */
+        max-width: 70%; /* Adjust image wrapper size for smaller screens */
+        margin-bottom: 2rem; /* Add space below image when stacked */
+    }
+    .about-image {
+        max-height: 50vh; /* Limit image height to prevent it from being too tall */
+    }
+}
+
+/* For larger phones and smaller tablets (e.g., 768px to 481px) */
+@media (max-width: 768px) {
+    /* CONSOLIDATED AND CORRECTED ABOUT SECTION STYLES FOR 768px */
+    .about {
+        padding: 6rem 5%; /* Good padding for this size */
+    }
+    .section-title {
+        font-size: 3.5rem; /* Adjusted heading size for tablets */
+    }
+    .section-subtitle {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    .about-content {
+        gap: 3rem; /* Reduced gap further */
+    }
+    .about-text p {
+        font-size: 1.6rem; /* A good readable font size for tablets */
+    }
+    .about-image-wrapper {
+        max-width: 80%; /* Adjust image wrapper size */
+    }
+    .about-image {
+        max-height: 45vh; /* Limit image height */
+    }
+}
+
+/* For small phones (e.g., 480px and below) */
+@media (max-width: 480px) {
+    .about {
+        padding: 5rem 3%; /* Minimal padding on very small screens */
+    }
+    .section-title {
+        font-size: 3rem; /* Smaller title for phones */
+    }
+    .section-title::after {
+        width: 6rem; /* Smaller underline for smaller title */
+    }
+    .section-subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+    }
+    .about-content {
+        gap: 2.5rem;
+    }
+    .about-text p {
+        font-size: 1.5rem; /* Smaller, but still readable font for small screens */
+        margin-bottom: 1.5rem;
+    }
+    .about-image-wrapper {
+        max-width: 90%; /* Maximize image width on very small screens */
+    }
+    .about-image {
+        max-height: 40vh; /* Control image height */
+    }
+}
+@media (max-width: 600px) {
+    .navbar {
+        padding: 1rem 4%; /* Even less padding */
+        height: 5.5rem; /* Smaller navbar */
+    }
+    .logo {
+        font-size: 2rem;
+    }
+    .navbar .logo img {
+        height: 4rem; /* Smaller image logo */
+    }
+
+    .burger-menu {
+        font-size: 2.8rem;
+    }
+
+    .home-content h1 {
+        font-size: 3.5rem;
+    }
+    .home-content h3 {
+        font-size: 2.2rem;
+    }
+    .home-content p {
+        font-size: 1.4rem;
+    }
+    .btn-box {
+        max-width: 20rem; /* Smaller buttons */
+    }
+    .btn-box a {
+        font-size: 1.6rem;
+    }
+
+   
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 3%; /* Minimal padding */
+    }
+    .home {
+        padding: 7rem 3% 3rem;
+    }
+    .home-content h1 {
+        font-size: 3rem;
+    }
+    .home-content h3 {
+        font-size: 2rem;
+    }
+    .home-content p {
+        font-size: 1.3rem;
+        margin: 1rem auto 2.5rem;
+    }
+    .btn-box {
+        max-width: 18rem;
+    }
+    .btn-box a {
+        font-size: 1.5rem;
+    }
+    .home-sci {
+        gap: 1.5rem; /* Smaller gap for icons */
+    }
+    .home-sci a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.8rem;
+    }
+
+  
+  }
+
+
+/* Service Card - Responsive Adjustments */
+.services-section {
+    padding: 8rem 10%; /* Consistent padding with other sections */
+    background-color: #213e53; /* Adjusted to match your primary dark background */
+    color: #ededed; /* Adjusted text color for dark background */
+}
+
+.section-title {
+    font-size: 4rem; /* Larger heading for prominence */
+    color: #00abf0; /* Consistent accent color */
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-subtitle {
+    font-size: 2.8rem; /* Adjusted subtitle size */
+    color: #ededed; /* Adjusted to match light text */
+    margin-bottom: 4rem; /* More space below subtitle */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* Min card width 300px */
+    gap: 3rem; /* Converted from 2rem to 3rem for more space */
+    justify-content: center; /* Center grid items if they don't fill the row */
+    align-items: stretch; /* Ensure cards stretch to same height */
+}
+
+.service-card {
+    background: #112e42; /* Darker card background, matching your site's theme */
+    padding: 3rem; /* Converted from 2rem to 3rem for more internal space */
+    border-radius: 1.2rem; /* Converted from 12px to 1.2rem */
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.4); /* Darker shadow for dark theme */
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; /* Use flex for content within card */
+    flex-direction: column;
+    align-items: center; /* Center icon/title if added */
+    text-align: center; /* Center text within card */
+}
+
+.service-card:hover {
+    transform: translateY(-1rem); /* Converted from -8px to -1rem */
+    box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.6); /* More pronounced shadow on hover */
+}
+
+.service-card h3 {
+    font-size: 2.2rem; /* Converted from 1.5rem to 2.2rem for larger cards */
+    color: #00abf0; /* Accent color for titles */
+    margin-bottom: 1.5rem; /* Converted from 1rem to 1.5rem */
+}
+
+.service-card p {
+    font-size: 1.6rem; /* Converted from 1rem to 1.6rem for readability */
+    color: rgba(255, 255, 255, 0.8); /* Lighter color for readability on dark background */
+    flex-grow: 1; /* Allow paragraph to take up available space */
+}
+
+/* Responsive Text & Grid Adjustments */
+@media (max-width: 1200px) {
+    .services-section {
+        padding: 6rem 5%; /* Adjust padding */
+    }
+    .section-title {
+        font-size: 3.5rem;
+    }
+    .section-subtitle {
+        font-size: 2.4rem;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); /* Slightly smaller min card width */
+        gap: 2.5rem;
+    }
+    .service-card h3 {
+        font-size: 2rem;
+    }
+    .service-card p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .services-section {
+        padding: 5rem 5%;
+    }
+    .section-title {
+        font-size: 3rem;
+    }
+    .section-subtitle {
+        font-size: 2rem;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr)); /* Further reduction */
+        gap: 2rem;
+    }
+    .service-card h3 {
+        font-size: 1.8rem;
+    }
+    .service-card p {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-section {
+        padding: 4rem 4%;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .section-subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 3rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+        gap: 2rem;
+    }
+    .service-card {
+        padding: 2.5rem;
+    }
+    .service-card h3 {
+        font-size: 1.6rem;
+    }
+    .service-card p {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* --- Contact Page Specific Styles --- */
+.contact-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 5% 4rem; /* Top padding for fixed navbar, bottom padding for spacing */
+    background: #0b3350; /* Consistent primary dark background */
+    color: #ededed;
+}
+
+.contact-container {
+    max-width: 80rem; /* Max width for content readability */
+    width: 100%;
+    padding: 4rem; /* Internal padding for the container */
+    background: #112e42; /* Consistent dark background for the container */
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    text-align: center;
+}
+
+.contact-container h1 {
+    font-size: 4.8rem; /* Adjusted for better scale */
+    font-weight: 700; /* Adjusted for consistency */
+    color: #00abf0;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.contact-container p {
+    font-size: 1.8rem; /* Adjusted for better scale */
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3.5rem;
+}
+
+/* Contact Info (Email & Phone) */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    gap: 1.5rem;
+}
+
+.contact-info p { /* Target paragraph containing icon and link */
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #ededed;
+    gap: 1rem;
+    margin-bottom: 0; /* Override default paragraph margin */
+}
+
+.contact-info p i {
+    font-size: 2.8rem;
+    color: #00abf0;
+}
+
+.contact-info p a {
+    color: #ededed;
+    transition: color 0.3s ease;
+}
+
+.contact-info p a:hover {
+    color: #00abf0;
+}
+
+/* Contact Form */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Space between form fields */
+    margin-bottom: 3rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 1.8rem; /* Larger padding for better touch targets */
+    background: #081b29; /* Darker input background */
+    border: 0.1rem solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.8rem;
+    font-size: 1.7rem;
+    color: whitesmoke;
+    resize: vertical; /* Allow vertical resizing of textarea */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: #00abf0;
+    box-shadow: 0 0 1rem rgba(0, 171, 240, 0.5);
+}
+
+#contact-form button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 19rem; /* Larger button width */
+    height: 5.6rem; /* Larger button height */
+    background: #00abf0;
+    border: 0.2rem solid #00abf0;
+    border-radius: 0.8rem;
+    font-size: 1.8rem; /* Adjusted for better scale */
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: #081b29;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    align-self: center; /* Center the button within the form */
+    box-shadow: 0 0 1rem rgba(0, 171, 240, 0.6);
+}
+
+#contact-form button:hover {
+    background: transparent;
+    color: #00abf0;
+    box-shadow: 0 0 2rem rgba(0, 171, 240, 0.7);
+}
+
+/* Form Message */
+#form-message {
+    font-size: 1.6rem; /* Adjusted for better scale */
+    margin-top: 2rem;
+    text-align: center;
+    min-height: 2.5rem; /* Reserve space to prevent layout shift */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.5s ease; /* Smooth fade in/out */
+    color: #ededed; /* Default color before success/error */
+}
+
+/* Socials on Contact Page */
+.socials-contact-page {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Space between icons */
+    margin-top: 4rem; /* Space from form */
+}
+
+.socials-contact-page a {
+    display: inline-flex; /* Changed from just flex to inline-flex to better control size with width/height */
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid #00abf0;
+    border-radius: 50%;
+    font-size: 2.8rem;
+    color: #00abf0;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 1rem rgba(0, 171, 240, 0.3);
+}
+
+.socials-contact-page a:hover {
+    background: #00abf0;
+    color: #081b29;
+    box-shadow: 0 0 2rem rgba(0, 171, 240, 0.7);
+}
+
+/* Responsive adjustments for contact page */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 3rem; /* Reduce padding on smaller screens */
+    }
+
+    .contact-container h1 {
+        font-size: 3.8rem;
+    }
+
+    .contact-container p {
+        font-size: 1.6rem;
+    }
+
+    .contact-info p {
+        font-size: 1.8rem;
+    }
+
+    .contact-info p i {
+        font-size: 2.4rem;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+
+    #contact-form button {
+        width: 18rem;
+        height: 5.5rem;
+        font-size: 1.8rem;
+    }
+
+    .socials-contact-page a {
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 2rem; /* Even less padding on very small screens */
+        border-radius: 0.5rem;
+    }
+
+    .contact-container h1 {
+        font-size: 3.2rem;
+    }
+
+    .contact-container p {
+        font-size: 1.5rem;
+    }
+
+    .contact-info {
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .contact-info p {
+        font-size: 1.6rem;
+        flex-direction: column; /* Stack icon and text on very small screens */
+        gap: 0.5rem;
+    }
+
+    .socials-contact-page {
+        gap: 1.5rem;
+    }
+    .socials-contact-page a {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2.2rem;
+    }
+}
+
+/* --- Footer Section --- */
+footer {
+    background: #112e42; /* Darker background, matching your navbar */
+    color: #ededed;
+    padding: 4rem 5%; /* Generous padding, consistent with other sections */
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.05); /* Subtle top border */
+    font-size: 1.6rem; /* Base font size for footer text */
+    margin-top: auto; /* Pushes footer to the bottom of the page */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: space-between;
+    gap: 3rem; /* Space between footer columns */
+    max-width: 120rem; /* Max width to keep content readable */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Default to center text for mobile */
+}
+
+.footer-info,
+.footer-nav,
+.footer-social {
+    flex: 1; /* Allows sections to grow and shrink */
+    min-width: 25rem; /* Minimum width before wrapping */
+}
+
+/* Footer Info */
+.footer-info h3 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #00abf0;
+    margin-bottom: 1.5rem;
+}
+
+.footer-info p {
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Footer Navigation */
+.footer-nav h4,
+.footer-social h4 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #00abf0;
+    margin-bottom: 1.5rem;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-nav ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+    color: #00abf0;
+}
+
+/* Footer Social Links */
+.social-links-footer {
+    display: flex;
+    justify-content: center; /* Center icons on mobile */
+    gap: 1.5rem;
+}
+
+.social-links-footer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem; /* Adjusted to rem */
+    height: 4rem; /* Adjusted to rem */
+    background: transparent;
+    border: 0.2rem solid #00abf0; /* Adjusted to rem */
+    border-radius: 50%;
+    font-size: 2rem; /* Adjusted from 1rem to 2rem for better icon size consistency */
+    color: #00abf0;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 0.8rem rgba(0, 171, 240, 0.3); /* Adjusted to rem */
+}
+
+.social-links-footer a:hover {
+    background: #00abf0;
+    color: #081b29;
+    box-shadow: 0 0 1.5rem rgba(0, 171, 240, 0.7); /* Adjusted to rem */
+}
+
+/* Responsive Adjustments for Footer */
+@media (min-width: 768px) {
+    .footer-container {
+        text-align: left; /* Align text left on larger screens */
+    }
+
+    .footer-info,
+    .footer-nav,
+    .footer-social {
+        flex: 1; /* Allow sections to distribute space more evenly */
+        min-width: unset; /* Remove min-width to allow more flexible sizing */
+    }
+
+    .social-links-footer {
+        justify-content: flex-start; /* Align icons to the left */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        flex-direction: column; /* Stack all footer sections on very small screens */
+        align-items: center; /* Center stacked items */
+    }
+
+    .footer-info,
+    .footer-nav,
+    .footer-social {
+        width: 100%; /* Take full width when stacked */
+        text-align: center; /* Ensure text is centered */
+        margin-bottom: 3rem; /* Add space between stacked sections */
+    }
+
+    .footer-nav ul li {
+        display: inline-block; /* Display nav items inline on small screens for a more compact look */
+        margin: 0 0.8rem 0.8rem; /* Add horizontal margin */
+    }
+
+    .social-links-footer {
+        justify-content: center; /* Ensure icons remain centered */
+    }
+}

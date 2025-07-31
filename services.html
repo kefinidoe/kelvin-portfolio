@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Kelvin Owens Frontend Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+<body>
+
+    <nav class="navbar">
+       <a href="index.html" class="logo">
+         <img src="logo.png" alt="Kelvin Owens Logo">
+       </a>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger-menu" id="burger-menu">☰</div>
+    </nav>
+
+    <section class="services-section">
+        <div class="about-container">
+            <h2 class="section-title">My Services</h2>
+            <h3 class="section-subtitle">Crafting Beautiful, Responsive, and Functional Websites</h3>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <h3>Custom Website Development</h3>
+                    <p>I build modern, fast, and accessible websites using HTML, CSS, and JavaScript tailored to your needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Responsive Web Design</h3>
+                    <p>I ensure your website looks perfect on desktops, tablets, and smartphones, delivering a seamless experience.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>UI/UX Design Implementation</h3>
+                    <p>I translate beautiful designs into fully functional, pixel-perfect websites that users love to interact with.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Website Optimization</h3>
+                    <p>Fast websites win. I optimize your site's speed, performance, and SEO for better visibility and user experience.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Maintenance and Updates</h3>
+                    <p>Websites need care. I offer regular maintenance and updates to keep your site secure and up-to-date.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Frontend Tools and Frameworks</h3>
+                    <p>Proficient with React.js, Tailwind CSS, Bootstrap, and API integrations to create dynamic and scalable websites.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Select the burger menu and the main navigation menu by their IDs/classes
+        const burgerMenu = document.getElementById('burger-menu');
+        const menu = document.querySelector('.menu');
+
+        // Add event listener to toggle the 'active' class on the menu when the burger icon is clicked
+        // The 'if' condition prevents errors if elements are not found (good practice)
+        if (burgerMenu && menu) {
+            burgerMenu.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+        }
+
+        // Optional: Add event listener to close the mobile menu when a navigation link is clicked.
+        // This enhances user experience on mobile devices.
+        const navLinks = document.querySelectorAll('.menu li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // If the menu is currently open (has the 'active' class), remove it to close the menu
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
